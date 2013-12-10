@@ -1,0 +1,22 @@
+.wrapper {
+	max-width: 30rem;
+	margin: 2rem auto;
+	padding: 5rem 2rem 2rem 2rem;
+	padding-top: 0;
+	border: 1px solid #ddd;
+}
+
+.list {
+	margin: 1rem 0 0 0;
+	padding: 0;
+}
+.list > li {
+	list-style-type: none;
+	margin: 0;
+	padding: .5rem;
+	border-bottom: 1px solid #ddd;
+}
+
+.has-focus {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}

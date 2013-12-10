@@ -1,0 +1,23 @@
+{
+  "name": "ko.start",
+  "version": "0.0.0",
+  "authors": [
+    "Daniel lager <daniel.lager@gmail.com>"
+  ],
+  "description": "Boilerplate for a knockoutjs app",
+  "license": "MIT",
+  "homepage": "lagr.se",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout-3.0.0": "http://knockoutjs.com/downloads/knockout-3.0.0.js",
+    "underscore": "~1.5.2",
+    "jquery": "~2.0.3",
+    "knockout-delegatedEvents": "~0.1.2"
+  }
+}

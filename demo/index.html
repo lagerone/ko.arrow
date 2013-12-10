@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ko.arrow demo</title>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="app-style.css">
+</head>
+<body>
+
+	<div id="app" class="wrapper">
+		<h1>ko.arrow demo</h1>
+		<p>ko.arrow is a <a href="http://knockoutjs.com/">knockout.js</a> bindinghandler for navigating and selecting items from a filtered list with the arrow keys.</p>
+		<p>Press <code>enter</code> to select focused item.</p>
+		<input type="search" class="search" data-bind="value: query, valueUpdate: 'keyup', arrow: { list: $data.filteredList }" placeholder="Enter query" />
+
+		<ul class="list" data-bind="foreach: filteredList, visible: filteredList().length">
+			<li data-bind="css: { 'has-focus': hasFocus }">
+				<span data-bind="text: name"></span>
+				<span data-bind="visible: isSelected">- selected</span>
+			</li>
+		</ul>
+	</div>
+
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/knockout-3.0.0/index.js"></script>
+	<script src="bower_components/underscore/underscore-min.js"></script>
+	<script src="../ko.arrow.js"></script>
+	<script src="app.js"></script>
+</body>
+</body>
+</html>
