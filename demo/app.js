@@ -2,9 +2,6 @@
 
 	'use strict';
 
-
-
-
 	var ViewModel = function () {
 		this.query = ko.observable('');
 		this.list = ko.observableArray([

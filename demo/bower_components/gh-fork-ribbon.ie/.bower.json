@@ -1,0 +1,15 @@
+{
+  "name": "gh-fork-ribbon.ie",
+  "_cacheHeaders": {
+    "ETag": "\"987f7191c534c9975bbecf30d57bd081\"",
+    "Content-Length": "2468",
+    "Content-Type": "text/plain; charset=utf-8",
+    "Content-Disposition": "inline"
+  },
+  "_release": "e-tag:987f7191c",
+  "main": "index.css",
+  "_source": "https://raw.github.com/simonwhitaker/github-fork-ribbon-css/gh-pages/gh-fork-ribbon.ie.css",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/simonwhitaker/github-fork-ribbon-css/gh-pages/gh-fork-ribbon.ie.css",
+  "_direct": true
+}

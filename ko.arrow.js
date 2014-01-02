@@ -1,4 +1,4 @@
-(function ($, ko, _) {
+(function ($, ko) {
 
 	'use strict';
 
@@ -6,7 +6,8 @@
 		init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
 			var value = ko.utils.unwrapObservable(valueAccessor()),
 				$element = $(element),
-				items = value.list;
+				items = value.list,
+				focusClass = 'has-focus';
 
 			$element.on('focus', function () {
 				$element.on('keydown', keyCodeEvents);
@@ -19,45 +20,53 @@
 
 			function keyCodeEvents(e) {
 				var keyCode = e.which,
-					o;
+					o, t;
 				if (keyCode === 40) {
 					// down
 					o = getFocusedItemObject();
-					if (o.focusedItem) {
-						o.focusedItem.hasFocus(false);
-						if (o.focusedItemPosition < (items().length - 1)) {
+					if (o.focusedItem.length) {
+						o.focusedItem.removeClass(focusClass);
+						if (o.focusedItemPosition < (getListItems().length - 1)) {
 							o.focusedItemPosition += 1;
 						}
-						items()[o.focusedItemPosition].hasFocus(true);
+						$(getListItems()[o.focusedItemPosition]).addClass(focusClass);
 					} else {
-						items()[0].hasFocus(true);
+						if (getListItems().length) {
+							getListItems().first().addClass(focusClass);
+						}
 					}
 				} else if (keyCode === 38) {
 					// up
+					e.preventDefault();
 					o = getFocusedItemObject();
-					if (o.focusedItem) {
-						o.focusedItem.hasFocus(false);
+					if (o.focusedItem.length) {
+						o.focusedItem.removeClass(focusClass);
 						if (o.focusedItemPosition > 0) {
 							o.focusedItemPosition -= 1;
 						}
-						items()[o.focusedItemPosition].hasFocus(true);
+						$(getListItems()[o.focusedItemPosition]).addClass(focusClass);
 					}
 				} else if (keyCode === 13) {
 					// enter
 					o = getFocusedItemObject();
-					if (o.focusedItem) {
-						o.focusedItem.isSelected(!o.focusedItem.isSelected());
+					if (o.focusedItem.length) {
+						var koItem = ko.dataFor(o.focusedItem[0]);
+						koItem.isSelected(!koItem.isSelected());
 					}
 				}
 			}
 			
+			function getListItems() {
+				return $element.parent().find('ul.list').first().find('li');
+			}
+
 			function getFocusedItemObject() {
 				var focusedItemPosition,
-					focusedItem = _.find(items(), function (item, i) {
-						if (item.hasFocus()) {
+					focusedItem = getListItems().filter(function (i) {
+						if ($(this).hasClass(focusClass)) {
 							focusedItemPosition = i;
+							return true;
 						}
-						return item.hasFocus();
 					});
 				return {
 					focusedItem: focusedItem,
@@ -66,15 +75,10 @@
 			}
 
 			function resetItemFocus() {
-				var focusedItem = _.find(items(), function (i) {
-					return i.hasFocus();
-				});
-				if (focusedItem) {
-					focusedItem.hasFocus(false);
-				}
+				getListItems().removeClass(focusClass);
 			}
 
 		}
 	};
 
-}(jQuery, ko, _));
+}(jQuery, ko));

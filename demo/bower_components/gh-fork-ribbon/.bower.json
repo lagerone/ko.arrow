@@ -1,0 +1,15 @@
+{
+  "name": "gh-fork-ribbon",
+  "_cacheHeaders": {
+    "ETag": "\"ef2cf384ab7402023dc53f6a77cb2398\"",
+    "Content-Length": "3418",
+    "Content-Type": "text/plain; charset=utf-8",
+    "Content-Disposition": "inline"
+  },
+  "_release": "e-tag:ef2cf384a",
+  "main": "index.css",
+  "_source": "https://raw.github.com/simonwhitaker/github-fork-ribbon-css/gh-pages/gh-fork-ribbon.css",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/simonwhitaker/github-fork-ribbon-css/gh-pages/gh-fork-ribbon.css",
+  "_direct": true
+}
